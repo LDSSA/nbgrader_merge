@@ -12,7 +12,7 @@ class NoSolutionsInFile(Exception):
 
 
 def is_exercise_nb(file):
-    with open(file, 'r') as fp:
+    with open(file, 'rt', encoding='utf-8') as fp:
         data = json.load(fp)
     for cell in data['cells']:
         if cell.get('metadata', {}).get('nbgrader', {}):
@@ -67,7 +67,7 @@ def merge(source, destination):
 
 
 def merge_files(source_file, destination_file, output_file):
-    with open(destination_file, 'r') as dst_fp, open(source_file, 'r') as src_fp:
+    with open(destination_file, 'rt', encoding='utf-8') as dst_fp, open(source_file, 'rt', encoding='utf-8') as src_fp:
         source = json.load(src_fp)
         destination = json.load(dst_fp)
 
@@ -78,7 +78,7 @@ def merge_files(source_file, destination_file, output_file):
                        source_file)
         return
 
-    with open(output_file, 'w') as fp:
+    with open(output_file, 'wt', encoding='utf-8') as fp:
         json.dump(out, fp, indent=1, ensure_ascii=False)
         fp.write('\n')
 
