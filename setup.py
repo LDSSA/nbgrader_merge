@@ -25,6 +25,6 @@ setup(
     name='nbgrader_merge',
     packages=find_packages(include=['nbgrader_merge']),
     url='https://github.com/hcastilho/nbgrader_merge',
-    version='0.1.0',
+    version='0.1.1',
     zip_safe=False,
 )
